@@ -191,6 +191,6 @@ int flag;
  // End timer, print timing information
  clock_t end = clock();
  double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
- printf("Time spent: %.20f\n",  time_spent);
+ //printf("Time spent: %.20f\n",  time_spent);
  return 0;
 }

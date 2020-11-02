@@ -3,5 +3,5 @@ rootfinder: rootfinder.c
 
 
 clean:
-	rm -fr *.exe *.o *.stackdump rootfinder.exe a.exe
+	rm -fr *.exe *.o *.stackdump rootfinder*
 
