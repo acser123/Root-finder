@@ -30,7 +30,7 @@ Time spent: 0.00772799999999999963
 #define EPSILON 0.000000000001 // tolerance, do not decreaase, this is all 'double' in C can do
 #define DX      0.000000000001      // dx, delta x: for numerical differentiation, do not decrease, this is all 'float in C can do
 
-const char *function_arg;
+char *function_arg;
 
 // Function to find the roots for
 double f(double x_h) {
