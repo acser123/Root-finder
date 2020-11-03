@@ -15,8 +15,8 @@
 /* Finds roots of expression in  the first argument expression:
 Example
 $ rootfinder "(2*asin((x*x-2)/2)-x*x*(2*asin(x/2)-3.1415)-x*sqrt(4-x*x))/4" -1 2 100
-result: Bisection: -0.53168220620747908001
-result: Bisection: 1.15875664258346633417
+Bisection: -0.53168220620747908001
+Bisection: 1.15875664258346633417
 Time spent: 0.00772799999999999963
 
 */   
