@@ -24,11 +24,10 @@ Time spent: 0.00772799999999999963
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <time.h>
 #include "tinyexpr.h"
 
-#define EPSILON 0.000000000001 // tolerance, do not decreaase, this is all 'double' in C can do
-#define DX      0.000000000001      // dx, delta x: for numerical differentiation, do not decrease, this is all 'float in C can do
+#define EPSILON 0.000000000000001 // tolerance, do not decreaase, this is all 'double' in C can do
+#define DX      0.000000000000001      // dx, delta x: for numerical differentiation, do not decrease, this is all 'float in C can do
 
 char *function_arg;
 
@@ -133,8 +132,6 @@ double bisectdf(double from, double to) {
 // main
 int main(int argc, char* argv[]) {
 
- // Convert first two arguments to double a=lower bound, b=upper bound
- clock_t begin = clock();
 
  // Get the expression from the command line
  function_arg = argv[1];
@@ -165,13 +162,13 @@ int flag;
 // function crosses the x axis and has a root/zero in the interval
   if ((flag==1) && fabs(fih-0)<EPSILON) {  
    result = ih;
-   printf("result: Zero at fih: %.20f\n", result);  
+   printf("Zero:  %.20f\n", result);  
    flag = 0;
   } 
 // Bisection
   if ((flag==1) && (fih*fiph<0)) {  
    result = bisectf (ih, iph);
-   printf("result: Bisection: %.20f\n", result);  
+   printf("Bisection: %.20f\n", result);  
    flag = 0;
   } 
 // Otherwise we are looking for a min/max or inflexion point where the first derivative is 0
@@ -180,7 +177,7 @@ int flag;
    result = bisectdf (ih, iph);
    // but it's only a root if the function is zero here, otherwise it's only an inflexion point
    if (fabs(f(result)-0)<EPSILON){
-    printf("result: df/dx=0: %.20f\n", result);  
+    printf("f(x)/dx=0: %.20f\n", result);  
    }
    flag = 0;
   }
@@ -188,9 +185,5 @@ int flag;
   i++;
  } while (iph <= to);
 
- // End timer, print timing information
- clock_t end = clock();
- double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
- //printf("Time spent: %.20f\n",  time_spent);
  return 0;
 }
